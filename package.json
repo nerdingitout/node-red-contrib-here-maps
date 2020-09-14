@@ -27,7 +27,6 @@
     "nodes": {
       "here-geocode": "here-geocode.js",
       "here-routing": "here-routing.js"
-      
     }
   },
   "dependencies": {
