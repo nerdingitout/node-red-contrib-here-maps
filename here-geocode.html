@@ -32,20 +32,24 @@
 </script>
 
 <script type="text/x-red" data-help-name="here-geocode">
-  <p>Calculate directions for private transport between two locations.
+  <p>Resolving addresses to geo-coordinates and vice-versa
   <p>Calculate directions for private transport between two locations by providing the starting/ending waypoints and routing modes.
-  <p>See the <a target="_blank" href="https://developer.here.com/documentation/routing/dev_guide/topics/resource-param-type-routing-mode.html#type-route-feature">online documentation</a>
-for more information about the <strong>HERE Calculate Route API</strong>.</p>
+  <p>See the <a target="_blank" href="https://developer.here.com/documentation/maps/3.1.19.0/dev_guide/topics/geocoding.html">online documentation</a>
+for more information about the <strong>HERE GeoCode and Search API</strong>.</p>
   <h3>Inputs:</h3>
   <dl class="message-properties">
     <dt class="optional">msg.hereparams.query <span class="property-type">string</span></dt>
-    <dd>If specified, override edit panel.</dd>
+    <dd>Enter a free-text query
+      Example:
+      125, Berliner, berlin
+      Beacon, Boston, Hospital
+    </dd>
   </dl>
   <h3>Outputs:</h3>
   <dl class="message-properties">
     <dt class="optional">msg.payload.response <span class="property-type">object</span></dt>
     <dd>Array of json objects containing the results of query</dd>
-    <dd>Find details on the <a target="_blank" href="https://developer.here.com/documentation/maps/3.1.19.0/dev_guide/topics/geocoding.html">Geo Code Search</a> data elements and definitions.</dd>
+    <dd>Find details on the <a target="_blank" href="https://developer.here.com/documentation/geocoding-search-api/api-reference-swagger.html">Geo Code Search</a> data elements and definitions.</dd>
     <dt class="optional">msg.hereparams <span class="property-type">object</span></dt>
     <dd>Array of json objects containing request parameters</dd>
   </dl>
