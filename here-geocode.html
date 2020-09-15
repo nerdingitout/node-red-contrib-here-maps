@@ -8,6 +8,7 @@
     defaults: {
       name: { value:""},
       query: {value:""},
+      in: {value:""},
       apikey: {value:"", type:"hereapikey",required: true}
     },
     label: function() {
@@ -26,6 +27,10 @@
     <input type="text" id="node-input-query" placeholder="">
   </div>
   <div class="form-row">
+    <label for="node-input-in"><i class="fa fa-globe"></i>in</label>
+    <input type="text" id="node-input-in" placeholder="">
+  </div>
+  <div class="form-row">
     <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
     <input type="text" id="node-input-name">
   </div>
@@ -39,10 +44,18 @@ for more information about the <strong>HERE GeoCode and Search API</strong>.</p>
   <h3>Inputs:</h3>
   <dl class="message-properties">
     <dt class="optional">msg.hereparams.query <span class="property-type">string</span></dt>
-    <dd>Enter a free-text query
-      Example:
-      125, Berliner, berlin
-      Beacon, Boston, Hospital
+    <dd>Enter a free-text query. Examples:
+      125, Berliner, berlin.<br>
+      Beacon, Boston, Hospital.
+    </dd>
+  </dl>
+  <dl class="message-properties">
+    <dt class="optional">msg.hereparams.in <span class="property-type">string</span></dt>
+    <dd>
+      Search within a geographic area. Results will be returned if they are located within the specified area.<br>
+      Examples:<br>
+      countryCode:USA<br>
+      countryCode:CAN,MEX,USA
     </dd>
   </dl>
   <h3>Outputs:</h3>
