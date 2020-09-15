@@ -30,12 +30,12 @@ module.exports = function(RED) {
         // passed in param, override default or node setting
         var str1 ="countryCode:";
         var str2=msg.hereparams.in_var;
-        msg.hereparams.in_var = str1.concat(str2);
+        var in_var2 = str1.concat(str2);
       }
 
       (async () => {
         try {
-          const response = await axios.get('https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&in='+msg.hereparams.in_var+'&apiKey='+apiKey);
+          const response = await axios.get('https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&in='+in_var2+'&apiKey='+apiKey);
           //console.log(response.data)
           msg.payload = response.data;
           node.send(msg);
