@@ -28,7 +28,9 @@ module.exports = function(RED) {
         msg.hereparams.in_var = in_var; // take the default or the node setting
       } else {
         // passed in param, override default or node setting
-        msg.hereparams.in_var = 'countryCode:'+msg.hereparams.in_var.toLowerCase();
+        var str1 ="countryCode:";
+        var str2=msg.hereparams.in_var;
+        msg.hereparams.in_var = str1.concat(str2);
       }
 
       (async () => {
