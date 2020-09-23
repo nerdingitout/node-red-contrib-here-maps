@@ -9,7 +9,6 @@
       name: { value:""},
       query: {value:""},
       in: {value:""},
-      limit:{value:0},
       apikey: {value:"", type:"hereapikey",required: true}
     },
     label: function() {
@@ -29,10 +28,6 @@
   </div>
   <div class="form-row">
     <label for="node-input-in"><i class="fa fa-globe"></i>in</label>
-    <input type="text" id="node-input-in" placeholder="">
-  </div>
-  <div class="form-row">
-    <label for="node-input-limit"><i class="fa fa-globe"></i>limit</label>
     <input type="text" id="node-input-in" placeholder="">
   </div>
   <div class="form-row">
@@ -62,11 +57,6 @@ for more information about the <strong>HERE GeoCode and Search API</strong>.</p>
       Examples:<br>
       countryCode:USA<br>
       countryCode:CAN,MEX,USA
-    </dd>
-  </dl>
-  <dl class="message-properties">
-    <dt class="optional">msg.hereparams.limit<span class="property-type">string</span></dt>
-    <dd>Optional parameter. Maximum number of results to be returned. Default: 20
     </dd>
   </dl>
   <h3>Outputs:</h3>
