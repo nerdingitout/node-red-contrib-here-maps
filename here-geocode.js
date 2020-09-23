@@ -33,7 +33,10 @@ module.exports = function(RED) {
 
       (async () => {
         try {
-          const response = await axios.get('https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&apiKey='+apiKey+'&in=countryCode:'+msg.hereparams.in_var);
+          var api_str='https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&apiKey='+apiKey;
+          if(msg.hereparams.in_var!=null || msg.hereparams.in_var!=' ')
+          api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var
+          const response = await axios.get(api_str);
           //console.log(response.data)
           msg.payload = response.data;
           node.send(msg);
