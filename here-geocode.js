@@ -47,7 +47,7 @@ module.exports = function(RED) {
         api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var;
       }
       if(msg.hereparams.limit!=""){
-        api_str=api_str+'&in=countryCode:'+msg.hereparams.limit;
+        api_str=api_str+'&limit='+msg.hereparams.limit;
       }
 
       (async () => {
