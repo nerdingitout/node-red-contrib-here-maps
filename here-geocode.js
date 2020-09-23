@@ -25,14 +25,15 @@ module.exports = function(RED) {
       }
       // saving the api call in api_str variable
       var api_str='https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&apiKey='+apiKey;
-      
+
       if( typeof msg.hereparams.in_var == 'undefined' ) {
         msg.hereparams.in_var = in_var; // take the default or the node setting
       } else {
         // passed in param, override default or node setting
         msg.hereparams.in_var = msg.hereparams.in_var;
-        api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var
-
+      }
+      if(msg.hereparams.in_var!=""){
+        api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var;
       }
 
       (async () => {
