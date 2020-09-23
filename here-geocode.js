@@ -5,6 +5,7 @@ module.exports = function(RED) {
     var name = n.name;
     var query = n.query;
     var in_var = n.in;
+    var limit = limit;
     var HEREConfigNode;
     var apiKey;
     const axios = require('axios');
@@ -17,6 +18,7 @@ module.exports = function(RED) {
 
       msg.hereparams = msg.hereparams || {};
 
+      //query, required parameter
       if( typeof msg.hereparams.query == 'undefined' ) {
         msg.hereparams.query = query; // take the default or the node setting
       } else {
@@ -26,14 +28,26 @@ module.exports = function(RED) {
       // saving the api call in api_str variable
       var api_str='https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&apiKey='+apiKey;
 
+      //in, optional parameter
       if( typeof msg.hereparams.in_var == 'undefined' ) {
         msg.hereparams.in_var = in_var; // take the default or the node setting
       } else {
         // passed in param, override default or node setting
         msg.hereparams.in_var = msg.hereparams.in_var;
       }
+      //limit, optional parameter
+      if( typeof msg.hereparams.limit == 'undefined' ) {
+        msg.hereparams.limit = limit; // take the default or the node setting
+      } else {
+        // passed in param, override default or node setting
+        msg.hereparams.limit = msg.hereparams.limit;
+      }
+      //Add the optional parameters to the api call if they are not empty
       if(msg.hereparams.in_var!=""){
         api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var;
+      }
+      if(msg.hereparams.limit!=""){
+        api_str=api_str+'&in=countryCode:'+msg.hereparams.limit;
       }
 
       (async () => {
