@@ -23,19 +23,20 @@ module.exports = function(RED) {
         // passed in param, override default or node setting
         msg.hereparams.query = msg.hereparams.query.toLowerCase();
       }
-
+      // saving the api call in api_str variable
+      var api_str='https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&apiKey='+apiKey;
+      
       if( typeof msg.hereparams.in_var == 'undefined' ) {
         msg.hereparams.in_var = in_var; // take the default or the node setting
       } else {
         // passed in param, override default or node setting
         msg.hereparams.in_var = msg.hereparams.in_var;
+        api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var
+
       }
 
       (async () => {
         try {
-          var api_str='https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.query+'&apiKey='+apiKey;
-          if(msg.hereparams.in_var!=null || msg.hereparams.in_var!=' ')
-          api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var
           const response = await axios.get(api_str);
           //console.log(response.data)
           msg.payload = response.data;
