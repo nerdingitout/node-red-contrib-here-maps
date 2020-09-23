@@ -35,6 +35,7 @@ module.exports = function(RED) {
         // passed in param, override default or node setting
         msg.hereparams.in_var = msg.hereparams.in_var;
       }
+
       //limit, optional parameter
       if( typeof msg.hereparams.limit == 'undefined' ) {
         msg.hereparams.limit = limit; // take the default or the node setting
@@ -42,12 +43,10 @@ module.exports = function(RED) {
         // passed in param, override default or node setting
         msg.hereparams.limit = msg.hereparams.limit;
       }
+
       //Add the optional parameters to the api call if they are not empty
       if(msg.hereparams.in_var!=""){
         api_str=api_str+'&in=countryCode:'+msg.hereparams.in_var;
-      }
-      if(msg.hereparams.limit!=""){
-        api_str=api_str+'&limit='+msg.hereparams.limit;
       }
 
       (async () => {
