@@ -41,5 +41,5 @@ module.exports = function(RED) {
       })();
     });
   }
-  RED.nodes.registerType("here-geocode",HEREGeoSearch);
+  RED.nodes.registerType("here-rev-geocode",HEREGeoSearch);
 }

@@ -2,7 +2,7 @@
   "name": "node-red-contrib-here-maps",
   "version": "0.1.0",
   "description": "Node-RED nodes for HERE maps, navigation and geolocation APIs",
-  "main": "here-rev-geocode.js",
+  "main": "here-routing.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,7 +27,7 @@
     "nodes": {
       "here-routing": "here-routing.js",
       "here-geocode": "here-geocode.js",
-      "here-reverse-geocode": "here-rev-geocode.js"
+      "here-rev-geocode": "here-rev-geocode.js"
     }
   },
   "dependencies": {

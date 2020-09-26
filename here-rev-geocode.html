@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  RED.nodes.registerType('here-geocode',{
+  RED.nodes.registerType('here-rev-geocode',{
     category: 'location',
     color: "#FFD700",
     icon: "font-awesome/fa-map-marker",
@@ -16,7 +16,7 @@
   });
 </script>
 
-<script type="text/x-red" data-template-name="here-geocode">
+<script type="text/x-red" data-template-name="here-rev-geocode">
   <div class="form-row">
     <label for="node-input-apikey"><i class="fa fa-key"></i> API Key</label>
     <input type="text" id="node-input-apikey">
@@ -31,7 +31,7 @@
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="here-geocode">
+<script type="text/x-red" data-help-name="here-rev-geocode">
   <p>Resolving addresses to geo-coordinates and vice-versa
   <p>Calculate directions for private transport between two locations by providing the starting/ending waypoints and routing modes.
   <p>See the <a target="_blank" href="https://developer.here.com/documentation/maps/3.1.19.0/dev_guide/topics/geocoding.html">online documentation</a>
