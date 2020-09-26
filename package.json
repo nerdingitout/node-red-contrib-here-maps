@@ -26,7 +26,8 @@
   "node-red": {
     "nodes": {
       "here-routing": "here-routing.js",
-      "here-geocode": "here-geocode.js"
+      "here-geocode": "here-geocode.js",
+      "here-reverse-geocode": "here-rev-geocode.js"
     }
   },
   "dependencies": {
