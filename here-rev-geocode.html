@@ -1,0 +1,55 @@
+<script type="text/javascript">
+  RED.nodes.registerType('here-geocode',{
+    category: 'location',
+    color: "#FFD700",
+    icon: "font-awesome/fa-map-marker",
+    inputs:1,
+    outputs:1,
+    defaults: {
+      name: { value:""},
+      at: {value:""},
+      apikey: {value:"", type:"hereapikey",required: true}
+    },
+    label: function() {
+      return this.name||"HERE Geo Search";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="here-geocode">
+  <div class="form-row">
+    <label for="node-input-apikey"><i class="fa fa-key"></i> API Key</label>
+    <input type="text" id="node-input-apikey">
+  </div>
+  <div class="form-row">
+    <label for="node-input-at"><i class="fa fa-globe"></i>latitude,longitude</label>
+    <input type="text" id="node-input-at" placeholder="-13.163068,-72.545128">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="here-geocode">
+  <p>Resolving addresses to geo-coordinates and vice-versa
+  <p>Calculate directions for private transport between two locations by providing the starting/ending waypoints and routing modes.
+  <p>See the <a target="_blank" href="https://developer.here.com/documentation/maps/3.1.19.0/dev_guide/topics/geocoding.html">online documentation</a>
+for more information about the <strong>HERE GeoCode and Search API</strong>.</p>
+  <h3>Inputs:</h3>
+  <dl class="message-properties">
+    <dt class="optional">msg.hereparams.at<span class="property-type">string</span></dt>
+    <dd>Specify the center of the search context expressed as coordinates.<br>
+      Format: {latitude},{longitude}<br>
+      Example: -13.163068,-72.545128
+    </dd>
+  </dl>
+  <h3>Outputs:</h3>
+  <dl class="message-properties">
+    <dt class="optional">msg.payload.response <span class="property-type">object</span></dt>
+    <dd>Array of json objects containing the results of the nearest address to geo coordinates specified in the request.</dd>
+    <dd>Find details on the <a target="_blank" href="https://developer.here.com/documentation/geocoding-search-api/api-reference-swagger.html">Geo Code Search</a> data elements and definitions.</dd>
+    <dt class="optional">msg.hereparams <span class="property-type">object</span></dt>
+    <dd>Array of json objects containing request parameters</dd>
+  </dl>
+</script>
