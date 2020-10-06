@@ -21,10 +21,13 @@ module.exports = function(RED) {
         msg.hereparams.at = at; // take the default or the node setting
       } else {
         // passed in param, override default or node setting
-        msg.hereparams.at = msg.hereparams.at;
+        var at_str = msg.hereparams.at;
+        var at_arr= at_str.split(",");
+        at_dec[0]= parseFloat(at_arr[0]);
+        at_dec[1]= parseFloat(at_arr[1]);
       }
       // saving the api call in api_str variable
-      var api_str='https://geocode.search.hereapi.com/v1/geocode?q='+msg.hereparams.at+'&apiKey='+apiKey;
+      var api_str='https://geocode.search.hereapi.com/v1/geocode?q='+at_dec[0]+','+at_dec[1]+'&apiKey='+apiKey;
 
       (async () => {
         try {
